@@ -30,7 +30,9 @@ export class HomePage {
     this.menu.swipeEnable(true);
   }
   login() {
-    this.auth.operacaoBancaria(this.banc);
+    this.auth.operacaoBancaria(this.banc).subscribe(response =>{
+      console.log(response.headers.get('Authorization'));
+    })
     console.log(this.banc);
     console.log('Operação realizada com sucesso');
 
